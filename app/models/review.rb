@@ -1,6 +1,7 @@
 class Review
   attr_reader :customer, :restaurant
-  attr_accessor :rating, :content
+  attr_writer :rating
+  attr_accessor :content
 
     @@all = []
     def initialize(customer, restaurant, rating, content)
@@ -13,6 +14,14 @@ class Review
 
     def self.all
         @@all
+    end
+
+    def rating
+        if @rating >= 1 && @rating <= 5
+            return @rating
+        else
+            return nil
+        end
     end
 end
 

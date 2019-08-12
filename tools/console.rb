@@ -17,7 +17,7 @@ nathan = Customer.new("Nathan", "le")
 eric = Customer.new("Eric", "Rios")
 mark = Customer.new("Mark", "Steranka")
 
-jason_review = jason.add_review(mcdonalds, "has delicious burgers", 5)
+jason_review = jason.add_review(mcdonalds, "has delicious burgers", 7)
 hemesh_review = hemesh.add_review(burger_king, "has very disgusting burgers", 1)
 nathan_review = nathan.add_review(rubios, "best fish tacos in the world", 4)
 eric_review = eric.add_review(rubios, "average fish burritos you'll ever taste", 3)
