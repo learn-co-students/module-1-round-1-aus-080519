@@ -8,5 +8,6 @@ end
 # so they will be available to test and play around with in your console
 chilis = Restaurant.new("chilis")
 bill = Review.new("bill", "chilis", "it was okay", 4)
+chris = Customer.new("Chris", "Bill", 0)
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line
