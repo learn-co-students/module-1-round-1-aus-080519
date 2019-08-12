@@ -1,4 +1,6 @@
 require_relative "review"
+
+ # 🐸: EXCELLENT!
 class Restaurant
   attr_reader :name
   @@all = []
@@ -16,18 +18,21 @@ class Restaurant
 
 
   def customers
-    self.reviews.map{|review| review.customer}.uniq
+    reviews.map{|review| review.customer}.uniq
   end
   
   def average_star_rating
-    self.reviews.map{|review| review.rating}.inject(0.0){|sum, n| sum + n} / self.reviews.length
+    # 🐸: Nicely done! 
+    #     - You can simplify your sum calculation.
+    #     - It can also be very helpful to breakdown such long code into pieces for better readability to others.
+    total = reviews.inject(0.0){|sum, review| sum + review.rating} / reviews.length
   end
 
   def longest_review
-    self.reviews.max_by{|review| review.content.length}.content
+    reviews.max_by{|review| review.content.length}.content
   end
 
-  def Restaurant.find_by_name(name)
+  def self.find_by_name(name)
     @@all.find{|restaurant| restaurant.name == name}
   end
   
