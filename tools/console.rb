@@ -22,6 +22,7 @@ hemesh_review = hemesh.add_review(burger_king, "has very disgusting burgers", 1)
 nathan_review = nathan.add_review(rubios, "best fish tacos in the world", 4)
 eric_review = eric.add_review(rubios, "average fish burritos you'll ever taste", 3)
 mark_review = mark.add_review(rubios, "why you should not eat at Rubios", 2)
+jason_review2 = jason.add_review(burger_king, "not as good as Mcdonalds", 4)
 
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line
