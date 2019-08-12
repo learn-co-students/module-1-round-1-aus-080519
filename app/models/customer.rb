@@ -1,4 +1,5 @@
 require_relative "review"
+require_relative "restaurant"
 
 class Customer
   attr_reader :first_name, :last_name
