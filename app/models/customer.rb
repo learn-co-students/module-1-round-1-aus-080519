@@ -7,6 +7,7 @@ class Customer
   def initialize(first_name, last_name)
     @first_name = first_name
     @last_name  = last_name
+    @@all << self
   end
 
   def full_name
@@ -35,7 +36,7 @@ class Customer
   end
 
   def self.find_by_name(customer_fullname)
-    self.all.find {|customer| self.full_name == customer_fullname}
+    self.all.find {|customer| customer.full_name == customer_fullname}
   end
 
   def self.find_all_by_first_name(customer_firstname)
