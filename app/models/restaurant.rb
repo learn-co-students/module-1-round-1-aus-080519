@@ -36,5 +36,7 @@ class Restaurant
     longest_review.content
   end
 
-
+  def self.find_by_name(name)
+    @@all.find{|restaurant| restaurant.name == name}
+  end
 end

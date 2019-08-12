@@ -1,5 +1,6 @@
 class Review
-    attr_accessor :customer, :restaurant, :content, :rating
+    attr_accessor :content, :rating
+    attr_reader :customer, :restaurant
 
     @@all = []
 
@@ -13,7 +14,6 @@ class Review
 
     def self.all
         @@all
-      end
-  
+    end
 end
 
