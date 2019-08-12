@@ -24,11 +24,11 @@ class Restaurant
   end
 
   def longest_review
-    self.reviews.max_by{|review| review.rating.length}.last
+    self.reviews.max_by{|review| review.content.length}.content
   end
 
   def Restaurant.find_by_name(name)
-    @@all.find{|restaurant| restaurant.name}
+    @@all.find{|restaurant| restaurant.name == name}
   end
   
 
