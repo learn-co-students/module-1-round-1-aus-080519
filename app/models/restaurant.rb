@@ -51,7 +51,8 @@ class Restaurant
     # #this returns value but not name of review with longest content
 
     #compare each review.content.length to each other to find max value
-    self.reviews.max_by{|review_a, review_b| review_a.content.length <==> review_b.content.length}
+    #self.reviews.max_by{|review_a, review_b| review_a.content <==> review_b.content}
+    self.reviews.max_by{|review|review.content}
   end
 
   #given a string of restaurant name, returns the first restaurant that matches
