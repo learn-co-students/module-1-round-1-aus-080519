@@ -7,6 +7,8 @@ class Review
     def initialize(customer, restaurant, rating, content)
         @customer = customer
         @restaurant = restaurant
+        
+        # 🐸: What would happen if I initialize and create a new review instance with a rating score 10?
         @rating = rating
         @content = content
         @@all << self

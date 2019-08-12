@@ -1,6 +1,7 @@
 require_relative "customer"
 require_relative "review"
 
+# 🐸: EXCELLENT!!!
 class Restaurant
   attr_reader :name
 
@@ -20,9 +21,11 @@ class Restaurant
   end
 
   def customers
-    self.reviews.collect {|review| review.customer}
+    # 🐸: Nice job. But remember, we need a uniq list!
+    self.reviews.collect {|review| review.customer}.uniq
   end
 
+  # 🐸: Love how you made another helper function here to take advantage of!
   #helper method that returns array of all ratings for this restaurant
   def ratings
     self.reviews.collect {|review| review.rating}
