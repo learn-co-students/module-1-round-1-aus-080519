@@ -1,3 +1,4 @@
+# 🐸: GREAT job!!! \
 class Review
     attr_accessor :content, :rating
     attr_reader :customer, :restaurant
