@@ -31,7 +31,8 @@ class Customer
     #go through all reviews that match customer
 
     # ----------------------- VB: Nice use of select ------------------------------
-    Review.all.select {|review| review.customer == self}
+    reviews_array = Review.all.select {|review| review.customer == self}
+    reviews_array.length #will output the number of reviews in that array
 
     # ----------------------- VB: Returns array of reviews not a number ------------------------------
   end
@@ -63,7 +64,7 @@ class Customer
 
   #given a string of a first name, returns an array containing all customers with that first name
   def self.find_all_by_name(name)
-    self.all.map{|customer|customer.full_name == name}
+    self.all.select{|customer|customer.full_name == name} #changed to select since there is a condition
 
     # ----------------------- VB: Returned [false, false, false] ----------------------------
   end
