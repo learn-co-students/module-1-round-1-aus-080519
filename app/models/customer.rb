@@ -29,7 +29,11 @@ class Customer
   #Returns the total number of reviews that a customer has authored
   def num_reviews
     #go through all reviews that match customer
+
+    # ----------------------- VB: Nice use of select ------------------------------
     Review.all.select {|review| review.customer == self}
+
+    # ----------------------- VB: Returns array of reviews not a number ------------------------------
   end
 
   #Returns a unique array of all restaurants a customer has reviewed
@@ -42,19 +46,26 @@ class Customer
     # reviewed_restaurants.uniq
 
     #use num_reviews method to return an array of the restaurants for that customer
+    # ----------------------- VB: Nice reuse of num_reviews ---------------------------
     all_reviews = self.num_reviews.map {|review|review.restaurant}
-    all_review.uniq
+    
+    # ----------------------- VB: TYPO ------------------------------
+    all_reviews.uniq
   end
 
   #given a string of a full name, returns the first customer whose full name matches
   def self.find_by_name(name)
     #find customer whos full name is equal to name argument. Find_by returns first record
     self.all.find_by{|customer| customer.full_name == name}
+
+    # ----------------------- VB: Error ------------------------------
   end
 
   #given a string of a first name, returns an array containing all customers with that first name
   def self.find_all_by_name(name)
     self.all.map{|customer|customer.full_name == name}
+
+    # ----------------------- VB: Returned [false, false, false] ----------------------------
   end
 
   #should return an array of all of the customer full names

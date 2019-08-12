@@ -16,6 +16,22 @@ Customer.new("Hemesh", "Patel")
 Customer.new("Ron", "Weasley")
 Customer.new("Harry", "Potter")
 
+# VB TESTS
+# chinese = Restaurant.new("Chinese")
+# thai = Restaurant.new("Thai")
+# mcd = Restaurant.new("McDonalds")
+
+# hemesh = Customer.new("Hemesh", "Patel")
+# vb = Customer.new("Vanessa", "Burroughs")
+# harry = Customer.new("Harry", "Potter")
+
+# mcd1 = vb.add_review(mcd, "Garbage", 1)
+# mcd2 = vb.add_review(mcd, "Still Garbage", 1)
+# mcd3 = harry.add_review(mcd, "Love it", 5)
+# thai1 = harry.add_review(thai, "Eh", 3)
+# chinese1 = hemesh.add_review(chinese, "Decent", 4)
+
+
 
 
 

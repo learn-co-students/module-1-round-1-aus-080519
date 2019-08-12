@@ -20,12 +20,18 @@ class Restaurant
     restaurant_reviews = Review.all.select{|review|review.restaurant == self}
     #return unique array of customer attached to each review
     restaurant_reviews.map.uniq {|review|review.customer}
+
+    # ----------------------- VB: Error with uniq ------------------------------
+    # restaurant_reviews.map {|review|review.customer}.uniq
   end
 
   #returns an array of all reviews for that restaurant
   def reviews
     #select will not give array, use map_by to set condition 
-    Review.all.map_by{|review|review.restaurant == self}
+    # Review.all.map_by{|review|review.restaurant == self}
+
+    # ----------------------- VB: Error with map_by ------------------------------
+    Review.all{|review|review.restaurant == self}
   end
 
   #returns the average star rating for a restaurant based on its reviews
@@ -38,6 +44,8 @@ class Restaurant
     avg = total_ratings / total_reviews
     #return average
     avg
+
+    # ----------------------- VB: Only returns 2 ------------------------------
   end
 
   #returns the longest review content for a given restaurant
@@ -53,6 +61,8 @@ class Restaurant
     #compare each review.content.length to each other to find max value
     #self.reviews.max_by{|review_a, review_b| review_a.content <==> review_b.content}
     self.reviews.max_by{|review|review.content}
+
+    # ----------------------- VB: Doesn't return longest review for a specific resturant ------------------------------
   end
 
   #given a string of restaurant name, returns the first restaurant that matches
@@ -61,6 +71,8 @@ class Restaurant
     restaurant_match = self.all.find_by{|restaurant|restaurant.name == name}
     #gets just the name from object
     restaurant_match.name
+
+    # ----------------------- VB: Error ------------------------------
   end
 
 end
