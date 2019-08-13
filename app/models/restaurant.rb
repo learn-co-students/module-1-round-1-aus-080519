@@ -19,7 +19,8 @@ class Restaurant
     #return all restaurant reviews
     restaurant_reviews = Review.all.select{|review|review.restaurant == self}
     #return unique array of customer attached to each review
-    restaurant_reviews.map.uniq {|review|review.customer}
+    customer_reviews_by_rest = restaurant_reviews.map {|review|review.customer}
+    customer_reviews_by_rest.uniq #added variable and then applied .uniq
 
     # ----------------------- VB: Error with uniq ------------------------------
     # restaurant_reviews.map {|review|review.customer}.uniq
@@ -27,11 +28,10 @@ class Restaurant
 
   #returns an array of all reviews for that restaurant
   def reviews
-    #select will not give array, use map_by to set condition 
     # Review.all.map_by{|review|review.restaurant == self}
 
     # ----------------------- VB: Error with map_by ------------------------------
-    Review.all{|review|review.restaurant == self}
+    Review.all.select{|review|review.restaurant == self} #change to select 
   end
 
   #returns the average star rating for a restaurant based on its reviews
@@ -50,17 +50,8 @@ class Restaurant
 
   #returns the longest review content for a given restaurant
   def longest_review
-    # #use reviews method and get the content length
-    # content_reviews = self.reviews.map {|review| review.content.length}
-    # #sort all the lengths
-    # sorted_contents = content_reviews.sort
-    # #get max value of this array
-    # sorted_contents.max
-    # #this returns value but not name of review with longest content
-
     #compare each review.content.length to each other to find max value
-    #self.reviews.max_by{|review_a, review_b| review_a.content <==> review_b.content}
-    self.reviews.max_by{|review|review.content}
+    self.reviews.max{|review_a, review_b| review_a.content <=> review_b.content}
 
     # ----------------------- VB: Doesn't return longest review for a specific resturant ------------------------------
   end
@@ -68,9 +59,8 @@ class Restaurant
   #given a string of restaurant name, returns the first restaurant that matches
   def self.find_by_name(name)
     #find_by only returns first instance which will be an object value
-    restaurant_match = self.all.find_by{|restaurant|restaurant.name == name}
-    #gets just the name from object
-    restaurant_match.name
+   self.all.find{|restaurant|restaurant.name == name}
+
 
     # ----------------------- VB: Error ------------------------------
   end

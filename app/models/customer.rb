@@ -40,31 +40,35 @@ class Customer
   #Returns a unique array of all restaurants a customer has reviewed
   def restaurants
     # #first get all restaurants a customer has reviewed and set to variable
-    # reviewed_restaurants = Review.all.select {|review| review.restaurant == self}
+    #reviewed_restaurants = Review.all.select {|review| review.customer == self}
     # #turn the results into array
-    # reviewed_restaurants_array = reviewed_restaurants.map{|review|review}
+    #reviewed_restaurants_array = reviewed_restaurants.map{|review|review.restaurant.name}
     # #return only unique results in this array
-    # reviewed_restaurants.uniq
+    #reviewed_restaurants_array.uniq
 
     #use num_reviews method to return an array of the restaurants for that customer
     # ----------------------- VB: Nice reuse of num_reviews ---------------------------
-    all_reviews = self.num_reviews.map {|review|review.restaurant}
+    all_reviews = Review.all.select {|review| review.customer == self}
+    all_review_restaurants = all_reviews.map{|review|review.restaurant}
+    all_review_restaurants.uniq
+    #went step by step using ariables to solve
+
     
     # ----------------------- VB: TYPO ------------------------------
-    all_reviews.uniq
+    #all_reviews.uniq
   end
 
   #given a string of a full name, returns the first customer whose full name matches
   def self.find_by_name(name)
     #find customer whos full name is equal to name argument. Find_by returns first record
-    self.all.find_by{|customer| customer.full_name == name}
+    self.all.find{|customer| customer.full_name == name}
 
     # ----------------------- VB: Error ------------------------------
   end
 
   #given a string of a first name, returns an array containing all customers with that first name
-  def self.find_all_by_name(name)
-    self.all.select{|customer|customer.full_name == name} #changed to select since there is a condition
+  def self.find_all_by_first_name(name)
+    self.all.select{|customer|customer.first_name == name} #changed to select since there is a condition
 
     # ----------------------- VB: Returned [false, false, false] ----------------------------
   end

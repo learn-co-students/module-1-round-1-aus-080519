@@ -8,13 +8,22 @@ def reload
   load 'config/environment.rb'
 end
 
-chinese = Restaurant.new("Chinese")
-Restaurant.new("Indian")
-Restaurant.new("Burgers")
+chinese = Restaurant.new("Panda Express")
+indian = Restaurant.new("Jaipur Palace")
+burgers = Restaurant.new("Hopdoddy")
 
-Customer.new("Hemesh", "Patel")
-Customer.new("Ron", "Weasley")
-Customer.new("Harry", "Potter")
+hemesh = Customer.new("Hemesh", "Patel")
+ron = Customer.new("Ron", "Weasley")
+harry = Customer.new("Harry", "Potter")
+harry2 = Customer.new("Harry", "Weasley")
+
+pe1 = hemesh.add_review(chinese, "Tastes like cardboard", 3)
+pe2 = hemesh.add_review(chinese, "Somewhat better but not awesome", 4)
+jp = ron.add_review(indian, "They are very authentic with their sauces", 4)
+hd1 = harry.add_review(burgers, "Eh meat", 2)
+hd2 = harry.add_review(burgers, "overpriced garbage", 1)
+hd3 = hemesh.add_review(burgers, "undercooked meat, gross", 1)
+
 
 # VB TESTS
 # chinese = Restaurant.new("Chinese")
