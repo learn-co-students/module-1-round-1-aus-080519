@@ -35,7 +35,14 @@ hemesh_patel.num_reviews == 2 #false
 andy_rosario.num_reviews == 1
 # <--- end testing, num_reviews method ---> 
 
-# <--- testing find_by_name (restaurant) --->
+# <--- testing find_by_name (customer) --->
+## will return true/false if correct/incorrect
+syd_bailey.find_by_name == "Syd Bailey"
+hemesh_patel.find_by_name == "Peter Parker" #false
+andy_rosario.find_by_name == "Andy Rosario"
+# <--- end testing, find_by_name (customer) --->
+
+
 
 
 # Insert code here to run before hitting the binding.pry
