@@ -19,21 +19,21 @@ class Customer
       @@all
     end
 
-    def add_review(customer, restaurant, content, rating)
+    def add_review(restaurant, content, rating)
       new_review = Review.new(self, restaurant, content, rating)
     end
 
     def num_reviews
       # we need to find all of the reviews using Reviews.all
-      my_reviews = Reviews.all.select{|r| r.customer == self}
+      my_reviews = Review.all.select{|r| r.customer == self}
       # then, we need turn the array into a number (using .count?)
       total_reviews = my_reviews.count
     end
 
     def restaurants
-      my_reviews = Reviews.all.select{|r| r.customer == self}
+      my_reviews = Review.all.select{|r| r.customer == self}
       # find restaurant
-      my_restaurants = my_reviews.map{|r| r.restaurant}
+      my_restaurants = my_reviews.map{|r| r.restaurant.name}
       # iterate thru *new* array - check for dupes (.uniq)
       final_reviews = my_restaurants.uniq
     end
@@ -47,7 +47,7 @@ class Customer
 
     def self.find_all_by_first_name(name)
       #find string full of firtst
-      find_first_names = @@all.select{|n| |n.first_name}
+      find_first_names = @@all.select{|n| n.first_name}
       #figure out if they match and return the new array 
     end
 

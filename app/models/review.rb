@@ -19,29 +19,25 @@ attr_reader :customer, :restaurant
         @@all
     end
 
-    def customer
-        my_customers = self.customer
-    end
+    # Infinite loops
 
-    def restaurant
-        my_restaurants = self.restaurant
-    end
+    # def customer
+    #     my_customers = self.customer
+    # end
 
-    def rating
-        my_rating = self.rating
-    end
+    # def restaurant
+    #     my_restaurants = self.restaurant
+    # end
 
-    def content
-        my_content = self.content
-    end
+    # def rating
+    #     my_rating = self.rating
+    # end
+
+    # def content
+    #     my_content = self.content
+    # end
 
  
 end
 
-
-
-
-
-
-end
 
